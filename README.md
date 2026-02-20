@@ -4,7 +4,7 @@ A modern, responsive e-commerce frontend built with Next.js 16, React, and Tailw
 
 ## 🚀 Live Demo
 
-[Deployed on Vercel - Live Link](https://your-vercel-url.vercel.app)
+[Deployed on Vercel - Live Link](https://samm-tech-e-commerce.vercel.app/)
 
 ## 📋 Project Overview
 
@@ -126,7 +126,7 @@ samm-tech-e-commerce/
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/samm-tech-e-commerce.git
+git clone https://github.com/sakhawat236hossain/Samm-Tech-E-Commerce
 cd samm-tech-e-commerce
 ```
 
