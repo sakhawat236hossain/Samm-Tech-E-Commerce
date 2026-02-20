@@ -19,14 +19,16 @@ export default function ProductDetailsPage() {
       try {
         setLoading(true);
         setError(null);
-        
+
         // Fetch single product by ID
         const res = await fetch(`https://fakestoreapi.com/products/${id}`);
-        
+
         if (!res.ok) {
-          throw new Error(`Failed to fetch product: ${res.status} ${res.statusText}`);
+          throw new Error(
+            `Failed to fetch product: ${res.status} ${res.statusText}`
+          );
         }
-        
+
         const data = await res.json();
         setProduct(data);
       } catch (err) {
@@ -62,7 +64,9 @@ export default function ProductDetailsPage() {
       <div className="min-h-screen flex items-center justify-center bg-white dark:bg-black">
         <div className="text-center">
           <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600 dark:text-zinc-400">Loading product details...</p>
+          <p className="text-gray-600 dark:text-zinc-400">
+            Loading product details...
+          </p>
         </div>
       </div>
     );
@@ -74,9 +78,11 @@ export default function ProductDetailsPage() {
       <div className="min-h-screen flex items-center justify-center bg-white dark:bg-black">
         <div className="text-center max-w-md">
           <div className="text-6xl mb-4">❌</div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Product Not Found</h1>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+            Product Not Found
+          </h1>
           <p className="text-gray-600 dark:text-zinc-400 mb-6">{error}</p>
-          <Link 
+          <Link
             href="/products"
             className="inline-block bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition-colors"
           >
@@ -92,8 +98,10 @@ export default function ProductDetailsPage() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white dark:bg-black">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Product Not Found</h1>
-          <Link 
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            Product Not Found
+          </h1>
+          <Link
             href="/products"
             className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium"
           >
@@ -110,7 +118,7 @@ export default function ProductDetailsPage() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Breadcrumb */}
         <nav className="mb-8">
-          <Link 
+          <Link
             href="/products"
             className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium flex items-center gap-2"
           >
@@ -144,9 +152,13 @@ export default function ProductDetailsPage() {
               <div className="flex items-center gap-4 mb-6">
                 <div className="flex items-center">
                   {[...Array(5)].map((_, i) => (
-                    <span 
-                      key={i} 
-                      className={`text-xl ${i < Math.floor(product.rating?.rate || 4) ? 'text-amber-400' : 'text-gray-300 dark:text-zinc-600'}`}
+                    <span
+                      key={i}
+                      className={`text-xl ${
+                        i < Math.floor(product.rating?.rate || 4)
+                          ? "text-amber-400"
+                          : "text-gray-300 dark:text-zinc-600"
+                      }`}
                     >
                       ★
                     </span>
@@ -175,7 +187,9 @@ export default function ProductDetailsPage() {
 
             {/* Description */}
             <div>
-              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Description</h2>
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                Description
+              </h2>
               <p className="text-gray-600 dark:text-zinc-400 leading-relaxed">
                 {product.description}
               </p>
@@ -183,16 +197,18 @@ export default function ProductDetailsPage() {
 
             {/* Quantity Selector */}
             <div className="flex items-center gap-4">
-              <span className="font-bold text-gray-900 dark:text-white">Quantity:</span>
+              <span className="font-bold text-gray-900 dark:text-white">
+                Quantity:
+              </span>
               <div className="flex items-center border border-gray-300 dark:border-zinc-700 rounded-xl">
-                <button 
+                <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
                   className="px-4 cursor-pointer py-2 text-gray-600 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-l-xl"
                 >
                   -
                 </button>
                 <span className="px-4 py-2 font-medium">{quantity}</span>
-                <button 
+                <button
                   onClick={() => setQuantity(quantity + 1)}
                   className="px-4 py-2 cursor-pointer text-gray-600 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-r-xl"
                 >
@@ -221,19 +237,27 @@ export default function ProductDetailsPage() {
             <div className="grid grid-cols-2 gap-4 pt-6 border-t border-gray-200 dark:border-zinc-800">
               <div className="flex items-center gap-2">
                 <span className="text-green-500">✓</span>
-                <span className="text-sm text-gray-600 dark:text-zinc-400">Free Shipping</span>
+                <span className="text-sm text-gray-600 dark:text-zinc-400">
+                  Free Shipping
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-green-500">✓</span>
-                <span className="text-sm text-gray-600 dark:text-zinc-400">30-Day Returns</span>
+                <span className="text-sm text-gray-600 dark:text-zinc-400">
+                  30-Day Returns
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-green-500">✓</span>
-                <span className="text-sm text-gray-600 dark:text-zinc-400">2-Year Warranty</span>
+                <span className="text-sm text-gray-600 dark:text-zinc-400">
+                  2-Year Warranty
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-green-500">✓</span>
-                <span className="text-sm text-gray-600 dark:text-zinc-400">Secure Payment</span>
+                <span className="text-sm text-gray-600 dark:text-zinc-400">
+                  Secure Payment
+                </span>
               </div>
             </div>
           </div>
@@ -241,9 +265,13 @@ export default function ProductDetailsPage() {
 
         {/* Related Products Section */}
         <div className="mt-20 pt-12 border-t border-gray-200 dark:border-zinc-800">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">You May Also Like</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+            You May Also Like
+          </h2>
           <div className="text-center py-12">
-            <p className="text-gray-500 dark:text-zinc-400">Related products will appear here</p>
+            <p className="text-gray-500 dark:text-zinc-400">
+              Related products will appear here
+            </p>
           </div>
         </div>
       </div>
