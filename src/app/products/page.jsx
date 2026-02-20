@@ -31,7 +31,7 @@ export default function ProductsPage() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10">
+    <div className="max-w-7xl mx-auto px-4 py-10">j
       <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
         <div>
           <h1 className="text-3xl font-black text-zinc-900 dark:text-white">
